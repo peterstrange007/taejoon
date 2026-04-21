@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taejoon | About</title>
+    <meta
+      name="description"
+      content="About Taejoon, the design system, motion language, and product philosophy."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="about">
+    <div class="page-shell">
+      <canvas class="tech-canvas" aria-hidden="true"></canvas>
+      <div class="ambient ambient-left"></div>
+      <div class="ambient ambient-right"></div>
+      <div class="noise"></div>
+      <div class="tech-grid"></div>
+      <div class="tech-lines"></div>
+
+      <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Taejoon home">
+          <img src="assets/logos/Taejoon-Logo-blue.png" alt="Taejoon logo" />
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="index.html" data-nav="home">Home</a>
+          <a href="about.html" data-nav="about">About</a>
+          <a href="product.html" data-nav="product">Product</a>
+          <a href="contact.html" data-nav="contact">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="section inner-hero">
+          <div class="section-heading reveal">
+            <p class="eyebrow">About Taejoon</p>
+            <h1 class="inner-title">A technical brand language shaped like a launch film.</h1>
+            <p class="hero-text narrow-copy">
+              Taejoon is built around restraint, contrast, and motion. The brand
+              favors dark surfaces, precise cyan highlights, and visuals that
+              feel closer to a premium product reveal than a static brochure.
+            </p>
+          </div>
+        </section>
+
+        <section class="section two-column">
+          <article class="experience-panel reveal">
+            <p class="eyebrow">Design Focus</p>
+            <h2>Minimal hardware, maximal atmosphere.</h2>
+            <p>
+              The layout keeps large typography, technical labels, and layered
+              glass panels so the product feels premium without becoming busy.
+            </p>
+          </article>
+
+          <div class="experience-stack">
+            <article class="spec-card reveal">
+              <span class="spec-label">Typography</span>
+              <strong>Inter Tight leads, JetBrains Mono defines the system tone.</strong>
+            </article>
+            <article class="spec-card reveal">
+              <span class="spec-label">Motion</span>
+              <strong>Slow parallax, animated grid drift, and edge glow response.</strong>
+            </article>
+            <article class="spec-card reveal">
+              <span class="spec-label">Background</span>
+              <strong>A technical field of canvas particles, scan lines, and circuit traces.</strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="feature-grid">
+            <article class="info-card reveal">
+              <span class="spec-label">01</span>
+              <strong>Readable hierarchy</strong>
+              <p>Each page now has a dedicated role instead of one compressed screen.</p>
+            </article>
+            <article class="info-card reveal">
+              <span class="spec-label">02</span>
+              <strong>Contained imagery</strong>
+              <p>Every render sits inside a deliberate image shell with controlled sizing.</p>
+            </article>
+            <article class="info-card reveal">
+              <span class="spec-label">03</span>
+              <strong>Technical motion</strong>
+              <p>The background behaves like a tech surface, not just a gradient.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
