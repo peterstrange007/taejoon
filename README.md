@@ -1,0 +1,3 @@
+TAEJOON is an emerging global technology enterprise headquartered in Hyderabad, India, dedicated to the development of premium, AI-driven products grounded in sustainability and environmental stewardship. Taejoon specialises in the design and manufacturing of the world's most advanced eco-friendly educational technologies, next-generation smart gadgets, and precision-engineered timekeeping devices.
+
+With a steadfast commitment to innovation and sustainable practices, TAEJOON is poised to become a prominent force in the global technology landscape. Its expanding portfolio of groundbreaking, environmentally conscious products and cutting-edge solutions reflects a bold vision for a smarter, greener future.
