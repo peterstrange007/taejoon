@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pre-book Taejoon ALIF</title>
+  <link rel="icon" type="image/png" href="assets/logos/taejoon_browser_logo.png">
+  <link rel="apple-touch-icon" href="assets/logos/taejoon_browser_logo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="prebook">
+  <div class="page-transition"></div>
+  <div class="cursor cursor-outer"></div>
+  <div class="cursor cursor-inner"></div>
+  <canvas class="fx-canvas" aria-hidden="true"></canvas>
+  <div class="ambient ambient-home"></div>
+
+  <header class="site-header">
+    <a class="brand-link transition-link" href="index.html" aria-label="Taejoon home">
+      <img class="brand-mark" src="assets/logos/taejoon_browser_logo.png" alt="" aria-hidden="true">
+      <span class="brand-kicker">Taejoon</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="nav-toggle__line"></span>
+    </button>
+    <nav class="site-nav">
+      <a class="nav-link transition-link" href="index.html">Home</a>
+      <a class="nav-link transition-link" href="about.html">About</a>
+      <a class="nav-link transition-link" href="products.html">Products</a>
+      <a class="nav-link transition-link" href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="panel">
+    <section class="panel">
+      <div class="section-heading">
+        <p class="eyebrow">Pre-book ALIF</p>
+        <h1>Pre-booking opens soon.</h1>
+        <p>We are finishing the payment and order preparation before launch. Please check back soon or contact us for product inquiries.</p>
+        <a class="button button-primary transition-link" href="contact.html">Contact Taejoon</a>
+      </div>
+
+      <div class="prebook-options is-disabled" hidden>
+        <button class="prebook-option" data-type="student">Student</button>
+        <button class="prebook-option" data-type="institute">Institute / Organization</button>
+        <button class="prebook-option" data-type="parent">Parent</button>
+      </div>
+
+      <div id="form-wrap" style="margin-top:24px;"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

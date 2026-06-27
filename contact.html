@@ -1,97 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Taejoon | Contact</title>
-    <meta
-      name="description"
-      content="Contact Taejoon for product, design, and partnership inquiries."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body data-page="contact">
-    <div class="page-shell">
-      <canvas class="tech-canvas" aria-hidden="true"></canvas>
-      <div class="ambient ambient-left"></div>
-      <div class="ambient ambient-right"></div>
-      <div class="noise"></div>
-      <div class="tech-grid"></div>
-      <div class="tech-lines"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Taejoon</title>
+  <meta name="description" content="Get in touch with Taejoon.">
+  <link rel="icon" type="image/png" href="assets/logos/taejoon_browser_logo.png">
+  <link rel="apple-touch-icon" href="assets/logos/taejoon_browser_logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700;800&family=Syncopate:wght@400;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="contact">
+  <div class="page-transition"></div>
+  <div class="cursor cursor-outer"></div>
+  <div class="cursor cursor-inner"></div>
+  <canvas class="fx-canvas" aria-hidden="true"></canvas>
+  <div class="ambient ambient-contact"></div>
 
-      <header class="site-header">
-        <a class="brand" href="index.html" aria-label="Taejoon home">
-          <img src="assets/logos/Taejoon-Logo-blue.png" alt="Taejoon logo" />
-        </a>
-        <nav class="site-nav" aria-label="Primary">
-          <a href="index.html" data-nav="home">Home</a>
-          <a href="about.html" data-nav="about">About</a>
-          <a href="product.html" data-nav="product">Product</a>
-          <a href="contact.html" data-nav="contact">Contact</a>
-        </nav>
-      </header>
+  <header class="site-header">
+    <a class="brand-link transition-link" href="index.html" aria-label="Taejoon home">
+      <img class="brand-mark" src="assets/logos/taejoon_browser_logo.png" alt="" aria-hidden="true">
+      <span class="brand-kicker">Taejoon</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="nav-toggle__line"></span>
+    </button>
+    <nav class="site-nav">
+      <a class="nav-link transition-link" href="index.html">Home</a>
+      <a class="nav-link transition-link" href="about.html">About</a>
+      <a class="nav-link transition-link" href="products.html">Products</a>
+      <a class="nav-link active transition-link" href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-      <main>
-        <section class="section inner-hero">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Contact</p>
-            <h1 class="inner-title">Start a conversation around product, design, or launch.</h1>
-            <p class="hero-text narrow-copy">
-              A premium contact page should still feel part of the same system,
-              so this form keeps the technical panels, mono labels, and cyan response.
-            </p>
+  <main>
+    <section class="panel contact-hero">
+      <div class="contact-hero__media" aria-hidden="true">
+        <img src="assets/products/product_img/Alif (12).jpg" alt="Taejoon contact hero photo">
+      </div>
+      <div class="contact-hero__copy reveal">
+        <p class="eyebrow">Contact Taejoon</p>
+        <h1>Bring offline intelligence into the room.</h1>
+        <p class="hero-text">
+          Reach out for product demos, education partnerships, distribution conversations, or launch collaborations.
+        </p>
+      </div>
+    </section>
+
+    <section class="panel contact-shell">
+      <div class="contact-grid">
+        <form class="contact-form reveal" action="contact.php" method="post">
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" required placeholder="Your name">
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required placeholder="you@example.com">
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="6" required placeholder="Tell us what you're building, exploring, or planning."></textarea>
+          </label>
+          <button class="button button-primary" type="submit">Send Inquiry</button>
+          <p class="form-status" aria-live="polite"></p>
+        </form>
+
+        <aside class="contact-meta reveal">
+          <div class="meta-block">
+            <p class="eyebrow">Direct</p>
+            <a href="mailto:contact@taejoon.in">contact@taejoon.in</a>
+            <a href="tel:+91 7382989008">+91 738 2989 008</a>
           </div>
-        </section>
-
-        <section class="section contact-layout">
-          <article class="experience-panel reveal">
-            <p class="eyebrow">Direct Line</p>
-            <h2>Let the page feel as intentional as the hardware.</h2>
-            <p>
-              Use this area for sales leads, partnership interest, or product
-              questions. The layout is already ready for a backend later.
-            </p>
-            <div class="contact-points">
-              <div class="info-card">
-                <span class="spec-label">Email</span>
-                <strong>hello@taejoon.tech</strong>
-              </div>
-              <div class="info-card">
-                <span class="spec-label">Region</span>
-                <strong>Global product and design inquiries</strong>
-              </div>
+          <div class="meta-block">
+            <p class="eyebrow">Address</p>
+            <p>T-Hub Phase II, Knowledge City Rd, Silpa Gram Craft Village, Madhapur, Hyderabad, Telangana 500032</p>
+            <a href="https://www.google.com/maps/place/TAEJOON%C2%AE/@17.4339164,78.3764919,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb93d1e2c279bd:0x7558f83a0f212fcc!8m2!3d17.4339164!4d78.3790668!16s%2Fg%2F11y8bh3hs5!5m2!1e4!1e2?authuser=0&amp;entry=ttu&amp;g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">Open in Google Maps</a>
+          </div>
+          <div class="meta-block">
+            <p class="eyebrow">Social</p>
+            <div class="social-row">
+              <a class="social-link" href="https://www.instagram.com/taejoontech" target="_blank" rel="noreferrer" aria-label="Instagram">
+                <img src="assets/icons/insta-logo.png" alt="Instagram">
+              </a>
+              <a class="social-link" href="https://in.linkedin.com/company/taejoon" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <img src="assets/icons/lin-logo.png" alt="LinkedIn">
+              </a>
+              <a class="social-link" href="https://www.youtube.com/@TaejoonTech" target="_blank" rel="noreferrer" aria-label="YouTube">
+                <img src="assets/icons/yt-logo.png" alt="YouTube">
+              </a>
             </div>
-          </article>
+          </div>
+          <div class="meta-block">
+            <p class="eyebrow">Signal</p>
+            <p>Minimal form. Direct response. Product, partnerships, and institutional conversations welcome.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-          <form class="contact-form reveal">
-            <label>
-              <span class="spec-label">Name</span>
-              <input type="text" name="name" placeholder="Your name" />
-            </label>
-            <label>
-              <span class="spec-label">Email</span>
-              <input type="email" name="email" placeholder="name@example.com" />
-            </label>
-            <label>
-              <span class="spec-label">Topic</span>
-              <input type="text" name="topic" placeholder="Product / Partnership / Media" />
-            </label>
-            <label>
-              <span class="spec-label">Message</span>
-              <textarea name="message" rows="6" placeholder="Tell Taejoon what you need."></textarea>
-            </label>
-            <button class="button button-primary" type="submit">Send Inquiry</button>
-          </form>
-        </section>
-      </main>
+    <section class="panel map-panel">
+      <div class="map-frame reveal">
+        <iframe
+          title="Taejoon map"
+          src="https://www.google.com/maps?q=TAEJOON%2C%20T-Hub%20Phase%20II%2C%20Knowledge%20City%20Rd%2C%20Madhapur%2C%20Hyderabad%2C%20Telangana%20500032&amp;output=embed"
+          loading="lazy"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <p class="site-footer__brand">Taejoon</p>
+        <p class="site-footer__text">Offline intelligence for students, readers, and global users.</p>
+      </div>
+      <nav class="site-footer__nav" aria-label="Footer">
+        <a class="transition-link" href="index.html">Home</a>
+        <a class="transition-link" href="about.html">About</a>
+        <a class="transition-link" href="products.html">Products</a>
+        <a class="transition-link" href="contact.html">Contact</a>
+      </nav>
+      <div class="site-footer__credit">
+        <p>&copy; 2022 Taejoon. All rights reserved.</p>
+        <p>Designed by <a href="https://www.strangesolution.com" target="_blank" rel="noreferrer">StrangeSolution.Com</a></p>
+      </div>
     </div>
+  </footer>
 
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
