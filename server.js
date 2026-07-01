@@ -12,6 +12,7 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 app.use(express.json({ limit: '32kb' }));
+app.get('/services.html', (req, res) => res.sendFile(path.join(__dirname, 'care.html')));
 app.use(express.static(path.join(__dirname)));
 
 const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID || '';
@@ -181,6 +182,53 @@ function appendContact(contact) {
 
 app.get('/api/health', (req, res) => {
   res.json({ ok: true, service: 'taejoon-api' });
+});
+
+const USERS_JSON = path.join(__dirname, 'users.json');
+const SHOP_ORDERS_CSV = path.join(__dirname, 'shop-orders.csv');
+if (!fs.existsSync(USERS_JSON)) fs.writeFileSync(USERS_JSON, '[]');
+if (!fs.existsSync(SHOP_ORDERS_CSV)) fs.writeFileSync(SHOP_ORDERS_CSV, 'timestamp,order_id,email,total,status\n');
+const SHOP_PRODUCTS = [
+  { id: 'core', name: 'ALIF Core', category: 'dictionary', price: 4249, stock: 48 },
+  { id: 'vision', name: 'ALIF Vision', category: 'camera', price: 5949, stock: 31 },
+  { id: 'voice', name: 'ALIF Voice', category: 'voice', price: 5099, stock: 22 },
+  { id: 'solar', name: 'ALIF Solar', category: 'solar', price: 6799, stock: 16 },
+  { id: 'mini', name: 'ALIF Mini', category: 'dictionary', price: 3399, stock: 54 },
+  { id: 'pro', name: 'ALIF Pro', category: 'camera', price: 8499, stock: 9 }
+];
+const tokenSecret = process.env.JWT_SECRET || RAZORPAY_KEY_SECRET || 'local-development-secret';
+function issueToken(user) {
+  const payload = Buffer.from(JSON.stringify({ sub: user.id, email: user.email, exp: Date.now() + 86400000 })).toString('base64url');
+  const signature = crypto.createHmac('sha256', tokenSecret).update(payload).digest('base64url');
+  return `${payload}.${signature}`;
+}
+app.get('/api/products', (req, res) => res.json({ ok: true, products: SHOP_PRODUCTS }));
+app.post('/api/auth/register', (req, res) => {
+  const name = String(req.body.name || '').trim(), email = String(req.body.email || '').trim().toLowerCase(), password = String(req.body.password || '');
+  if (!name || !EMAIL_PATTERN.test(email) || password.length < 8) return res.status(400).json({ message: 'Use a valid name, email and password of at least 8 characters' });
+  const users = JSON.parse(fs.readFileSync(USERS_JSON, 'utf8'));
+  if (users.some(user => user.email === email)) return res.status(409).json({ message: 'An account already exists for this email' });
+  const salt = crypto.randomBytes(16).toString('hex');
+  const hash = crypto.pbkdf2Sync(password, salt, 120000, 32, 'sha256').toString('hex');
+  const user = { id: crypto.randomUUID(), name, email, salt, hash, createdAt: new Date().toISOString() };
+  users.push(user); fs.writeFileSync(USERS_JSON, JSON.stringify(users, null, 2));
+  res.status(201).json({ ok: true, token: issueToken(user), user: { name, email } });
+});
+app.post('/api/auth/login', (req, res) => {
+  const email = String(req.body.email || '').trim().toLowerCase(), password = String(req.body.password || '');
+  const users = JSON.parse(fs.readFileSync(USERS_JSON, 'utf8')), user = users.find(item => item.email === email);
+  if (!user) return res.status(401).json({ message: 'Email or password is incorrect' });
+  const hash = crypto.pbkdf2Sync(password, user.salt, 120000, 32, 'sha256').toString('hex');
+  if (!safeCompare(hash, user.hash)) return res.status(401).json({ message: 'Email or password is incorrect' });
+  res.json({ ok: true, token: issueToken(user), user: { name: user.name, email } });
+});
+app.post('/api/shop/orders', (req, res) => {
+  const email = String(req.body.email || '').trim(), items = Array.isArray(req.body.items) ? req.body.items : [];
+  if (!EMAIL_PATTERN.test(email) || !items.length) return res.status(400).json({ message: 'Email and cart items are required' });
+  const total = items.reduce((sum, id) => sum + (SHOP_PRODUCTS.find(product => product.id === id)?.price || 0), 0);
+  const orderId = `TJ${Date.now().toString().slice(-8)}`;
+  fs.appendFileSync(SHOP_ORDERS_CSV, [new Date().toISOString(), orderId, email, total, 'confirmed'].map(csvValue).join(',') + '\n');
+  res.status(201).json({ ok: true, orderId, total });
 });
 
 app.get('/api/create-order', (req, res) => {
