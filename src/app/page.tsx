@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import FeaturedSlider from '../components/FeaturedSlider';
+import FeaturedSlider from '../components/FeaturedSlider';
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   HiOutlineLightningBolt,
@@ -397,7 +399,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href="/store"
-                  className="btn-primary text-base px-8 py-3.5"
+                  className="btn-primary animate-pulse text-base px-8 py-3.5"
                 >
                   Buy Now
                   <HiOutlineArrowRight className="w-5 h-5" />
