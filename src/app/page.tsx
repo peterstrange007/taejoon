@@ -1,7 +1,7 @@
 use client
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
 import {
   HiOutlineLightningBolt,
   HiOutlineShieldCheck,
@@ -14,6 +14,7 @@ import {
   HiOutlineEye,
   HiOutlineSun,
 } from "react-icons/hi";
+import Head from "next/head";
 
 const products = [
   {
@@ -114,48 +115,38 @@ export default function Page() {
   return (
     <>
       <Head>
-        {/* Standard meta tags */}
         <meta name="description" content="Taejoon offers premium assistive technology devices designed to empower individuals with communication challenges." />
         <meta name="keywords" content="assistive technology, communication devices, ALIF, Taejoon, premium technology" />
         <meta name="author" content="Taejoon" />
-        
-        {/* Open Graph meta tags */}
         <meta property="og:title" content="Taejoon - Premium Assistive Technology" />
         <meta property="og:description" content="Taejoon offers premium assistive technology devices designed to empower individuals with communication challenges." />
         <meta property="og:image" content="/images/hero-section/hero-image.jpg" />
         <meta property="og:url" content="https://taejoon.com" />
         <meta property="og:type" content="website" />
-        
-        {/* Twitter meta tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Taejoon - Premium Assistive Technology" />
         <meta name="twitter:description" content="Taejoon offers premium assistive technology devices designed to empower individuals with communication challenges." />
         <meta name="twitter:image" content="/images/hero-section/hero-image.jpg" />
-        
-        {/* JSON-LD schema markup */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Taejoon",
-              "url": "https://taejoon.com",
-              "logo": "https://taejoon.com/images/logo.png",
-              "sameAs": [
-                "https://www.facebook.com/taejoon",
-                "https://www.twitter.com/taejoon",
-                "https://www.instagram.com/taejoon"
-              ],
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+1-555-123-4567",
-                "email": "contact@taejoon.com",
-                "url": "https://taejoon.com/contact"
-              }
-            })
-          }}
-        />
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Taejoon",
+            "url": "https://taejoon.com",
+            "logo": "https://taejoon.com/images/logo.png",
+            "sameAs": [
+              "https://www.facebook.com/taejoon",
+              "https://www.twitter.com/taejoon",
+              "https://www.instagram.com/taejoon"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-555-123-4567",
+              "email": "contact@taejoon.com",
+              "url": "https://taejoon.com/contact"
+            }
+          }
+        </script>
       </Head>
       <div className="overflow-hidden">
         {/* ───── Hero Section ───── */}
@@ -456,26 +447,3 @@ export default function Page() {
     </>
   );
 }
-
-export const metadata = {
-  title: "Taejoon - Premium Assistive Technology",
-  description: "Taejoon offers premium assistive technology devices designed to empower individuals with communication challenges. Shop our range of ALIF devices, including smartphones, tablets, and more.",
-  openGraph: {
-    title: "Taejoon - Premium Assistive Technology",
-    description: "Taejoon offers premium assistive technology devices designed to empower individuals with communication challenges.",
-    images: [
-      {
-        url: "/images/hero-section/hero-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Taejoon - Premium Assistive Technology",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Taejoon - Premium Assistive Technology",
-    description: "Taejoon offers premium assistive technology devices designed to empower individuals with communication challenges.",
-    images: ["/images/hero-section/hero-image.jpg"],
-  },
-};
