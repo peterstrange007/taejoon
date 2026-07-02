@@ -31,6 +31,8 @@ export default function AuthModal() {
     close();
   };
 
+  if (!showModal) return null;
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-2xl p-6 w-full max-w-md">
@@ -132,7 +134,8 @@ export default function AuthModal() {
                   placeholder="name@example.com"
                   className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-primary focus:ring-primary"
                   required
-                </div>
+                />
+              </div>
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-gray-700">
                     Password
@@ -145,7 +148,7 @@ export default function AuthModal() {
                     placeholder="••••••••"
                     className="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-primary focus:ring-primary"
                     required
-                  </div>
+                  />
                 </div>
                 <button
                   type="submit"
@@ -156,7 +159,6 @@ export default function AuthModal() {
               </form>
             </>
           )}
-        )}
         <div className="flex justify-center mt-4">
           <button
             className="text-sm font-medium text-primary hover:underline"

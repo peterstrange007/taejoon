@@ -4,17 +4,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   HiOutlinePhone,
-  HiOutlineEnvelope,
-  HiOutlineMapPin,
+  HiOutlineMail,
+  HiOutlineLocationMarker,
   HiOutlineCheckCircle,
 } from "react-icons/hi";
 import toast from "react-hot-toast";
-
-export const metadata = {
-  title: "Contact Us",
-  description: "Get in touch with Taejoon. Contact our support team, visit our offices, or send us a message.",
-  keywords: ["contact", "support", "customer service"],
-};
 
 const contactInfo = [
   {
@@ -24,13 +18,13 @@ const contactInfo = [
     link: "tel:+911140505050",
   },
   {
-    icon: HiOutlineEnvelope,
+    icon: HiOutlineMail,
     title: "Email",
     value: "support@taejoon.com",
     link: "mailto:support@taejoon.com",
   },
   {
-    icon: HiOutlineMapPin,
+    icon: HiOutlineLocationMarker,
     title: "Headquarters",
     value: "New Delhi, India",
     link: "#",
@@ -274,7 +268,7 @@ export default function ContactPage() {
             >
               <h2 className="text-2xl font-bold mb-6">Our Offices</h2>
               <div className="space-y-4">
-                {offices.map((office, i) => (
+                {offices.map((office) => (
                   <div
                     key={office.city}
                     className="p-6 rounded-xl border border-white/5 hover:border-primary/20 transition-colors"
@@ -284,7 +278,7 @@ export default function ContactPage() {
                     </h3>
                     <div className="space-y-2 text-sm text-white/60">
                       <div className="flex items-start gap-2">
-                        <HiOutlineMapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                        <HiOutlineLocationMarker className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                         <p>{office.address}</p>
                       </div>
                       <div className="flex items-center gap-2">
@@ -297,7 +291,7 @@ export default function ContactPage() {
                         </a>
                       </div>
                       <div className="flex items-center gap-2">
-                        <HiOutlineEnvelope className="w-4 h-4 text-primary flex-shrink-0" />
+                        <HiOutlineMail className="w-4 h-4 text-primary flex-shrink-0" />
                         <a
                           href={`mailto:${office.email}`}
                           className="hover:text-primary transition-colors"

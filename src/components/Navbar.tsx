@@ -159,7 +159,7 @@ export default function Navbar() {
             </div>
           ) : (
             <Link
-              href="/auth"
+              href="/auth/login"
               className="btn-primary text-sm px-4 py-2"
             >
               Sign In
@@ -210,7 +210,7 @@ export default function Navbar() {
               })}
               {!user && (
                 <Link
-                  href="/auth"
+                  href="/auth/login"
                   className="mt-2 btn-primary text-sm text-center py-3"
                 >
                   Sign In

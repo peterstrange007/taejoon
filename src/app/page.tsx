@@ -1,5 +1,5 @@
-use client
-import { useEffect, useRef } from "react";
+"use client";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import {
@@ -127,26 +127,29 @@ export default function Page() {
         <meta name="twitter:title" content="Taejoon - Premium Assistive Technology" />
         <meta name="twitter:description" content="Taejoon offers premium assistive technology devices designed to empower individuals with communication challenges." />
         <meta name="twitter:image" content="/images/hero-section/hero-image.jpg" />
-        <script type="application/ld+json">
-          {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Taejoon",
-            "url": "https://taejoon.com",
-            "logo": "https://taejoon.com/images/logo.png",
-            "sameAs": [
-              "https://www.facebook.com/taejoon",
-              "https://www.twitter.com/taejoon",
-              "https://www.instagram.com/taejoon"
-            ],
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+1-555-123-4567",
-              "email": "contact@taejoon.com",
-              "url": "https://taejoon.com/contact"
-            }
-          }
-        </script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Taejoon",
+              url: "https://taejoon.com",
+              logo: "https://taejoon.com/images/logo.png",
+              sameAs: [
+                "https://www.facebook.com/taejoon",
+                "https://www.twitter.com/taejoon",
+                "https://www.instagram.com/taejoon",
+              ],
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+1-555-123-4567",
+                email: "contact@taejoon.com",
+                url: "https://taejoon.com/contact",
+              },
+            }),
+          }}
+        />
       </Head>
       <div className="overflow-hidden">
         {/* ───── Hero Section ───── */}

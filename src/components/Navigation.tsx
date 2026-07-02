@@ -1,10 +1,10 @@
+"use client";
+
 import { useState } from 'react';
 import Link from 'next/link';
 
 export default function Navigation() {
   const [showModal, setShowModal] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
 

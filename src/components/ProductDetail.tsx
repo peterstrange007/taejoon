@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import Product3DViewer from './Product3DViewer';
 import { useCart } from '@/context/CartContext';
 
@@ -16,8 +14,8 @@ export interface Product {
 }
 
 export default function ProductDetail({ product }: { product: Product }) {
-  const [quantity, setQuantity] = useState(1);
-  const { cart, addToCart, removeFromCart } = useCart();
+  const quantity = 1;
+  const { cart, addToCart } = useCart();
 
   // Check if product is already in cart
   const isInCart = cart.some((item) => item.id === product.id);

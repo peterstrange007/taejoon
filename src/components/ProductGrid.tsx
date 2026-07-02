@@ -1,4 +1,7 @@
+"use client";
+
 import { useState } from 'react';
+import Image from 'next/image';
 
 export interface Product {
   id: number;
@@ -76,9 +79,11 @@ export default function ProductGrid() {
             className="group rounded-2xl overflow-hidden shadow-lg border border-white/5 bg-surface hover:transform hover:scale-105 transition-transform duration-300 group-hover:scale-102"
           >
             <a href={product.href}>
-              <img
+              <Image
                 src={product.image}
                 alt={product.name}
+                width={640}
+                height={384}
                 className="w-full h-48 object-cover"
               />
             </a>
@@ -127,9 +132,11 @@ export default function ProductGrid() {
             <h2 className="text-2xl font-bold text-center mb-4">
               {selectedProduct.name}
             </h2>
-            <img
+            <Image
               src={selectedProduct.image}
               alt={selectedProduct.name}
+              width={768}
+              height={512}
               className="w-full h-64 object-cover rounded-t-2xl mb-4"
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">

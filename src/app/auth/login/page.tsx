@@ -4,15 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { HiOutlineEnvelope, HiOutlineLockClosed, HiOutlineArrowRight } from "react-icons/hi";
+import { HiOutlineMail, HiOutlineLockClosed, HiOutlineArrowRight } from "react-icons/hi";
 import { useAuth } from "@/context/AuthContext";
 import toast from "react-hot-toast";
-
-export const metadata = {
-  title: "Sign In",
-  description: "Sign in to your Taejoon account to manage orders and access exclusive features.",
-  robots: { index: false },
-};
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -26,21 +20,7 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (!res.ok) {
-        const error = await res.json();
-        toast.error(error.message || "Invalid credentials");
-        setLoading(false);
-        return;
-      }
-
-      const data = await res.json();
-      login(data.user);
+      await login(email, password);
       toast.success("Login successful!");
       router.push("/");
     } catch (error) {
@@ -77,7 +57,7 @@ export default function LoginPage() {
                 Email Address
               </label>
               <div className="relative">
-                <HiOutlineEnvelope className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+                <HiOutlineMail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
                 <input
                   type="email"
                   value={email}

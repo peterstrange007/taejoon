@@ -10,12 +10,6 @@ import {
   HiOutlineArrowRight,
 } from "react-icons/hi";
 
-export const metadata = {
-  title: "About Taejoon",
-  description: "Learn about Taejoon's mission to make assistive technology accessible, affordable, and inclusive for everyone. Meet our team.",
-  keywords: ["about Taejoon", "company mission", "accessibility", "team"],
-};
-
 const team = [
   {
     name: "Amit Kumar",

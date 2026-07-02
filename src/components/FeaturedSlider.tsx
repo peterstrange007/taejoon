@@ -1,6 +1,5 @@
 import { useRef } from 'react';
-import Link from 'next/link';
-import { useScroll } from 'framer-motion';
+import Image from 'next/image';
 
 export default function FeaturedSlider() {
 const sliderRef = useRef<HTMLDivElement>(null);
@@ -26,9 +25,11 @@ const sliderRef = useRef<HTMLDivElement>(null);
             key={i}
             className="flex-shrink-0 w-64 rounded-xl bg-surface hover:scale-105 transition-transform duration-200"
           >
-            <img
+            <Image
               src={`/assets/products/slide-show/Alif (${i + 6}).jpg`}
               alt={`Featured ${i + 1}`}
+              width={256}
+              height={192}
               className="w-full h-48 object-cover rounded-xl"
             />
             <div className="absolute bottom-2 left-2 text-white">

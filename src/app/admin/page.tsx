@@ -1,9 +1,19 @@
+"use client";
+
 import { useEffect, useState } from 'react';
-import { Product } from '@/models/Product';
+
+interface Product {
+  id: number; name: string; tagline: string; price: string; category: string;
+  image: string; specs: string[]; href: string;
+}
+
+interface OrderSummary {
+  id: number; customer: string; amount: string; status: string;
+}
 
 export default function AdminDashboard() {
   const [products, setProducts] = useState<Product[]>([]);
-  const [orders, setOrders] = useState<any[]>([]);
+  const [orders, setOrders] = useState<OrderSummary[]>([]);
 
   useEffect(() => {
     // Fetch products and orders from the backend

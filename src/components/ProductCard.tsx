@@ -1,7 +1,15 @@
+"use client";
+
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
-export default function ProductCard({ product }) {
+interface Product {
+  href: string; image: string; name: string; tagline: string;
+  category: string; price: string | number; specs: string[];
+}
+
+export default function ProductCard({ product }: { product: Product }) {
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => setShowModal(true);
@@ -10,9 +18,11 @@ export default function ProductCard({ product }) {
   return (
     <div className="group rounded-2xl overflow-hidden shadow-lg border border-white/5 bg-surface hover:transform hover:scale-105 transition-transform duration-300 group-hover:scale-102">
       <Link href={product.href} className="group-hover:scale-100">
-        <img
+        <Image
           src={product.image}
           alt={product.name}
+          width={640}
+          height={384}
           className="w-full h-48 object-cover"
         />
       </Link>
@@ -30,22 +40,19 @@ export default function ProductCard({ product }) {
           Quick View
         </button>
       </div>
+      {showModal && <QuickViewModal product={product} onClose={closeModal} />}
     </div>
   );
 }
 
 /* Quick view modal */
-export function QuickViewModal({ product }) {
-  const [open, setOpen] = useState(true);
-  const toggle = () => setOpen(!open);
-
-  if (!open) return null;
+export function QuickViewModal({ product, onClose }: { product: Product; onClose: () => void }) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-2xl p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
         <button
-          onClick={closeModal}
+          onClick={onClose}
           className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
         >
           <svg
@@ -65,9 +72,11 @@ export function QuickViewModal({ product }) {
         <h2 className="text-2xl font-bold text-center mb-4">
           {product.name}
         </h2>
-        <img
+        <Image
           src={product.image}
           alt={product.name}
+          width={768}
+          height={512}
           className="w-full h-64 object-cover rounded-t-2xl mb-4"
         />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">

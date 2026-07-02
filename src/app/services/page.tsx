@@ -5,18 +5,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   HiOutlineShieldCheck,
-  HiOutlineWrench,
-  HiOutlineHeartHandshake,
+  HiOutlineCog,
+  HiOutlineHeart,
   HiOutlineLightningBolt,
   HiOutlineChevronDown,
   HiOutlineArrowRight,
 } from "react-icons/hi";
-
-export const metadata = {
-  title: "Services & Support",
-  description: "Comprehensive warranty, 24/7 support, extended care plans, and device upgrade programs for ALIF devices.",
-  keywords: ["warranty", "support", "service plans", "technical support"],
-};
 
 const services = [
   {
@@ -25,12 +19,12 @@ const services = [
     desc: "Comprehensive coverage for manufacturing defects and technical issues. Free repairs and replacements included.",
   },
   {
-    icon: HiOutlineWrench,
+    icon: HiOutlineCog,
     title: "24/7 Technical Support",
     desc: "Dedicated support team available round-the-clock via phone, email, and chat. Average response time: 1 hour.",
   },
   {
-    icon: HiOutlineHeartHandshake,
+    icon: HiOutlineHeart,
     title: "Extended Care Plans",
     desc: "Optional plans covering accidental damage, lost parts replacement, and priority service for 3-5 years.",
   },
@@ -168,7 +162,7 @@ export default function ServicesPage() {
                     "Normal wear and tear",
                   ],
                 },
-              ].map((section, i) => (
+              ].map((section) => (
                 <div key={section.title} className="p-6 rounded-lg border border-white/5">
                   <h3 className="font-semibold text-white mb-3">
                     {section.title}

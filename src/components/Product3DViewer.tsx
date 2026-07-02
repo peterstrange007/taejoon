@@ -1,5 +1,4 @@
 import { Canvas } from '@react-three/fiber';
-import { useRef } from 'react';
 
 export default function Product3DViewer() {
   return (

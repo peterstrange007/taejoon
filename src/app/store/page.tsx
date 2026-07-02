@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   HiOutlineShoppingCart,
@@ -13,12 +14,6 @@ import {
 } from "react-icons/hi";
 import { useAuth } from "@/context/AuthContext";
 import toast from "react-hot-toast";
-
-export const metadata = {
-  title: "Store",
-  description: "Shop ALIF devices. Browse products, add to cart, and checkout securely. Free shipping on orders.",
-  keywords: ["shop", "store", "buy ALIF", "checkout"],
-};
 
 interface Product {
   _id: string;
@@ -46,7 +41,7 @@ export default function StorePage() {
     pincode: "",
   });
 
-  const { cart, cartTotal, removeFromCart, updateCartQuantity, clearCart } =
+  const { cart, cartTotal, addToCart, removeFromCart, updateCartQuantity, clearCart } =
     useAuth();
 
   // Fetch products
@@ -154,9 +149,11 @@ export default function StorePage() {
                       >
                         {/* Image */}
                         <div className="w-24 h-24 rounded-lg overflow-hidden bg-surface-light flex-shrink-0">
-                          <img
+                          <Image
                             src={product.images[0] || "/placeholder.png"}
                             alt={product.name}
+                            width={96}
+                            height={96}
                             className="w-full h-full object-cover"
                           />
                         </div>
@@ -184,20 +181,18 @@ export default function StorePage() {
                         {/* Action */}
                         <button
                           onClick={() => {
-                            const existingItem = cart.find((c) => c._id === product._id);
+                            const existingItem = cart.find((c) => c.productId === product._id);
                             if (existingItem) {
-                              updateCartQuantity(product._id, existingItem.quantity + 1);
+                              updateCartQuantity(product._id, existingItem.edition, existingItem.quantity + 1);
                             } else {
-                              const cartItem = {
-                                _id: product._id,
+                              addToCart({
+                                productId: product._id,
                                 name: product.name,
                                 price: product.price,
                                 image: product.images[0],
                                 quantity: 1,
-                                slug: product.slug,
-                              };
-                              // Create a temporary add to cart action
-                              // We'll need to use a cart context method
+                                edition: "standard",
+                              });
                             }
                             toast.success("Added to cart!");
                           }}
@@ -236,7 +231,7 @@ export default function StorePage() {
                     <div className="space-y-3 mb-6 max-h-64 overflow-y-auto">
                       {cart.map((item) => (
                         <div
-                          key={item._id}
+                          key={`${item.productId}-${item.edition}`}
                           className="p-3 rounded-lg bg-white/5 border border-white/5"
                         >
                           <div className="flex justify-between items-start mb-2">
@@ -244,7 +239,7 @@ export default function StorePage() {
                               {item.name}
                             </h4>
                             <button
-                              onClick={() => removeFromCart(item._id)}
+                              onClick={() => removeFromCart(item.productId, item.edition)}
                               className="text-white/40 hover:text-primary transition-colors"
                               aria-label="Remove from cart"
                             >
@@ -260,7 +255,8 @@ export default function StorePage() {
                               <button
                                 onClick={() =>
                                   updateCartQuantity(
-                                    item._id,
+                                    item.productId,
+                                    item.edition,
                                     Math.max(1, item.quantity - 1)
                                   )
                                 }
@@ -274,7 +270,7 @@ export default function StorePage() {
                               </span>
                               <button
                                 onClick={() =>
-                                  updateCartQuantity(item._id, item.quantity + 1)
+                                  updateCartQuantity(item.productId, item.edition, item.quantity + 1)
                                 }
                                 className="text-white/60 hover:text-white transition-colors"
                                 aria-label="Increase quantity"
@@ -405,8 +401,8 @@ export default function StorePage() {
                     value={formData.street}
                     onChange={(e) =>
                       setFormData({ ...formData, street: e.target.value })
-                    placeholder="123 Main Street"
                     }
+                    placeholder="123 Main Street"
                     required
                     className="w-full px-4 py-2 rounded-lg border border-white/10 bg-white/5 text-white placeholder-white/40 focus:outline-none focus:border-primary/50"
                   />
@@ -422,8 +418,8 @@ export default function StorePage() {
                       value={formData.city}
                       onChange={(e) =>
                         setFormData({ ...formData, city: e.target.value })
-                      placeholder="New Delhi"
                       }
+                      placeholder="New Delhi"
                       required
                       className="w-full px-4 py-2 rounded-lg border border-white/10 bg-white/5 text-white placeholder-white/40 focus:outline-none focus:border-primary/50"
                     />
@@ -437,8 +433,8 @@ export default function StorePage() {
                       value={formData.state}
                       onChange={(e) =>
                         setFormData({ ...formData, state: e.target.value })
-                      placeholder="Delhi"
                       }
+                      placeholder="Delhi"
                       className="w-full px-4 py-2 rounded-lg border border-white/10 bg-white/5 text-white placeholder-white/40 focus:outline-none focus:border-primary/50"
                     />
                   </div>
@@ -450,9 +446,9 @@ export default function StorePage() {
                       type="text"
                       value={formData.pincode}
                       onChange={(e) =>
-                      placeholder="110001"
                         setFormData({ ...formData, pincode: e.target.value })
                       }
+                      placeholder="110001"
                       required
                       className="w-full px-4 py-2 rounded-lg border border-white/10 bg-white/5 text-white placeholder-white/40 focus:outline-none focus:border-primary/50"
                     />

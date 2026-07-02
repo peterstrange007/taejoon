@@ -6,18 +6,12 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
   HiOutlineUser,
-  HiOutlineEnvelope,
+  HiOutlineMail,
   HiOutlineLockClosed,
   HiOutlineArrowRight,
 } from "react-icons/hi";
 import { useAuth } from "@/context/AuthContext";
 import toast from "react-hot-toast";
-
-export const metadata = {
-  title: "Create Account",
-  description: "Create a Taejoon account to place orders and track purchases.",
-  robots: { index: false },
-};
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -27,7 +21,7 @@ export default function RegisterPage() {
     confirmPassword: "",
   });
   const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
+  const { register } = useAuth();
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,25 +49,7 @@ export default function RegisterPage() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
-
-      if (!res.ok) {
-        const error = await res.json();
-        toast.error(error.message || "Registration failed");
-        setLoading(false);
-        return;
-      }
-
-      const data = await res.json();
-      login(data.user);
+      await register(formData.name, formData.email, formData.password);
       toast.success("Account created successfully!");
       router.push("/");
     } catch (error) {
@@ -131,7 +107,7 @@ export default function RegisterPage() {
                 Email Address
               </label>
               <div className="relative">
-                <HiOutlineEnvelope className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+                <HiOutlineMail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
                 <input
                   type="email"
                   name="email"
