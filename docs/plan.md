@@ -1,23 +1,23 @@
 # Project Redesign Plan
 
-- [ ] Define detailed requirements and design specs
-- [ ] Set up version control repository and initial project structure
-- [ ] Initialize Next.js app with TypeScript and TailwindCSS
+- [x] Define detailed requirements and design specs
+- [x] Set up version control repository and initial project structure
+- [x] Initialize Next.js app with TypeScript and TailwindCSS
+- [x] Build premium navigation bar with dropdown and search
 - [ ] Configure linting, formatting, and CI/CD pipelines
 - [ ] Create design system (color palette, typography, spacing)
-- [x] Build premium navigation bar with dropdown and search
 - [x] Develop hero section with carousel/slider and animated CTA
-- [ ] Implement product grid with hover effects and quick view modal
-- [ ] Create product detail pages with 360° view and specs table
-- [ ] Build shopping cart functionality and checkout flow
-- [ ] Develop user authentication (login/register popup)
-- [ ] Set up backend server (Node.js/Express) with MongoDB
-- [ ] Develop API endpoints for products, orders, users
-- [ ] Implement admin dashboard for inventory and orders management
-- [ ] Integrate dummy payment gateway for checkout testing
-- [ ] Add SEO meta tags, Open Graph, and JSON‑LD schema markup
-- [ ] Apply smooth scroll animations and parallax effects
-- [ ] Ensure mobile‑first responsive design across all breakpoints
-- [ ] Conduct cross‑browser and accessibility testing
-- [ ] Deploy frontend to Vercel and backend to Heroku/AWS
-- [ ] Write comprehensive documentation and handover guide
+- [x] Implement product grid with hover effects and quick view modal
+- [x] Create product detail pages with 360° view and specs table
+- [x] Build shopping cart functionality and checkout flow
+- [x] Develop user authentication (login/register popup)
+- [x] Set up backend server (Node.js/Express) with MongoDB
+- [x] Develop API endpoints for products, orders, users
+- [x] Implement admin dashboard for inventory and orders management
+- [x] Integrate dummy payment gateway for checkout testing
+- [x] Add SEO meta tags, Open Graph, and JSON-LD schema markup
+- [x] Apply smooth scroll animations and parallax effects
+- [x] Ensure mobile-first responsive design across all breakpoints
+- [x] Conduct cross-browser and accessibility testing
+- [x] Deploy frontend to Vercel and backend to Heroku/AWS
+- [x] Write comprehensive documentation and handover guide
