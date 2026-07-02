@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Taejoon — Intelligent Assistive Devices",
+    default: "Taejoon — Intelligent Assistive Devices for Everyone",
     template: "%s | Taejoon",
   },
   description:
-    "Taejoon creates intelligent, affordable ALIF assistive devices that empower individuals to communicate, learn, and thrive. Discover ALIF Core, Voice, Vision, and Solar editions.",
+    "Taejoon's ALIF devices bring intelligent, affordable assistive communication to every individual. Explore our premium smart devices for accessibility and empowerment.",
   keywords: [
     "assistive technology",
     "ALIF device",
@@ -30,26 +30,46 @@ export const metadata: Metadata = {
     "communication aid",
     "accessibility",
     "smart assistive device",
+    "speech assistance",
+    "inclusive technology",
+    "disability support",
   ],
-  authors: [{ name: "Taejoon" }],
+  authors: [{ name: "Taejoon Inc.", url: "https://taejoon.com" }],
   creator: "Taejoon",
+  publisher: "Taejoon Inc.",
+  formatDetection: {
+    email: false,
+    telephone: false,
+    address: false,
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
     siteName: "Taejoon",
-    title: "Taejoon — Intelligent Assistive Devices",
+    title: "Taejoon — Intelligent Assistive Devices for Everyone",
     description:
-      "Redefining assistive technology with intelligent, affordable devices.",
+      "Every voice deserves to be heard. Discover ALIF — affordable, intelligent assistive devices.",
+    url: "https://taejoon.com",
   },
   twitter: {
     card: "summary_large_image",
     title: "Taejoon — Intelligent Assistive Devices",
     description:
-      "Redefining assistive technology with intelligent, affordable devices.",
+      "Every voice deserves to be heard. Discover ALIF — affordable, intelligent assistive devices.",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "google-site-verification",
   },
 };
 
