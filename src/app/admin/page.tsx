@@ -1,4 +1,5 @@
-"use client";
+export { default } from "@/components/AdminDashboard";
+/* Legacy dashboard.
 
 import { useEffect, useState } from 'react';
 
@@ -97,3 +98,4 @@ export default function AdminDashboard() {
     </div>
   );
 }
+*/

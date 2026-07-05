@@ -1,4 +1,5 @@
-"use client";
+export { default } from "@/components/PremiumHome";
+/* Legacy homepage retained below for reference.
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
@@ -152,23 +153,23 @@ export default function Page() {
         />
       </Head>
       <div className="overflow-hidden">
-        {/* ───── Hero Section ───── */}
+        { / * ───── Hero Section ───── * /}
         <section
           ref={heroRef}
           className="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
         >
-          {/* Background Effects */}
+          { / * Background Effects * /}
           <div className="absolute inset-0 bg-background" />
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-primary/5 blur-[120px]" />
           <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[100px]" />
-          {/* Grid Overlay */}
+          { / * Grid Overlay * /}
           <div className="absolute inset-0 opacity-[0.03] bg-grid" />
           
           <motion.div
             style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
             className="relative z-10 container-custom text-center py-20 md:py-32"
           >
-            {/* Badge */}
+            { / * Badge * /}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -179,7 +180,7 @@ export default function Page() {
               Next-Gen Assistive Technology
             </motion.div>
             
-            {/* Headline */}
+            { / * Headline * /}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -192,7 +193,7 @@ export default function Page() {
               <span className="text-gradient">heard.</span>
             </motion.h1>
             
-            {/* Subheadline */}
+            { / * Subheadline * /}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -204,7 +205,7 @@ export default function Page() {
               technology can do.
             </motion.p>
             
-            {/* CTAs */}
+            { / * CTAs * /}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -220,7 +221,7 @@ export default function Page() {
               </Link>
             </motion.div>
             
-            {/* Stats */}
+            { / * Stats * /}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -241,7 +242,7 @@ export default function Page() {
           </motion.div>
         </section>
         
-        {/* ───── Product Showcase ───── */}
+        { / * Product Showcase * /}
         <section className="section-padding relative">
           <div className="container-custom">
             <motion.div
@@ -273,7 +274,7 @@ export default function Page() {
                     href={product.href}
                     className="group block relative p-6 rounded-2xl border border-white/5 bg-surface hover:bg-surface-light transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5"
                   >
-                    {/* Icon */}
+                    { / * Icon * /}
                     <div
                       className={`w-14 h-14 mb-5 rounded-xl bg-gradient-to-br ${product.color} flex items-center justify-center border border-white/5`}
                     >
@@ -301,7 +302,7 @@ export default function Page() {
           </div>
         </section>
         
-        {/* ───── Features ───── */}
+        { / * Features * /}
         <section className="section-padding bg-surface/50 border-y border-white/5">
           <div className="container-custom">
             <motion.div
@@ -345,7 +346,7 @@ export default function Page() {
           </div>
         </section>
         
-        {/* ───── Pricing Tiers ───── */}
+        { / * Pricing Tiers * /}
         <section className="section-padding">
           <div className="container-custom">
             <motion.div
@@ -411,7 +412,7 @@ export default function Page() {
           </div>
         </section>
         
-        {/* ───── CTA Banner ───── */}
+        { / * CTA Banner * /}
         <section className="section-padding">
           <div className="container-custom">
             <motion.div
@@ -450,3 +451,4 @@ export default function Page() {
     </>
   );
 }
+*/
